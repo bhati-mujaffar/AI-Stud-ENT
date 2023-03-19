@@ -28,17 +28,38 @@ def textchat():
         image = Image.open(link)
         text2 = pytesseract.image_to_string(image, lang='eng')
         print(text2)
-        with open("notebook.txt", "r+") as f:
+        with open("notebook.txt","r+") as f:
             f.write(text2)
-            data=f.read()
-        params["dataset"]=data
+        with open("notebook.txt", "r") as f:
+            lines = f.readlines()
+        # Remove any blank lines or extra whitespace
+        lines = [line.strip() for line in lines if line.strip()]
+        with open("notebook.txt", "w") as f:
+            f.write("\n".join(lines))
+        with open("notebook.txt","r+") as f:
+            data=f.read()    
+            params["dataset"]=data
     return render_template('index.html',params=params)
 
 
 
-@app.route("/dashboard")
+@app.route("/dashboard", methods=["GET", "POST"])
 def dashboard():
-    return render_template('dashboard.html',params=params)
+    if request.method == "POST":
+        if "content" in request.form:
+            with open("notebook.txt", "w") as f:
+                f.write(request.form["content"])
+            with open("notebook.txt", "r") as f:
+                data = f.read()
+                params["dataset"] = data
+            return render_template("dashboard.html", params=params)
+        else:
+            return render_template("dashboard.html", params=params)
+    else:
+        with open("notebook.txt", "r") as f:
+            data = f.read()
+            params["dataset"] = data
+        return render_template("dashboard.html", params=params)
 
 @app.route("/chatbot")
 def chatbot():
