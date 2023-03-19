@@ -57,7 +57,7 @@ def dashboard():
             return render_template("dashboard.html", params=params)
     else:
         with open("notebook.txt", "r") as f:
-            data = f.read()
+            data = f.read().strip()
             params["dataset"] = data
         return render_template("dashboard.html", params=params)
 
