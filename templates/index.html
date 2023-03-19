@@ -130,93 +130,99 @@
     </section>
     <!-- End Cta Section -->
 
-    <!-- ======= Team Section ======= -->
-    <section id="team" class="team">
-      <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
-          <h2>Team</h2>
-          <p>Check My Making Team</p>
-        </div>
 
-        <div class="row">
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="100">
-              <div class="member-img">
-                <img src="../static/assets/img/team/male.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Noah Sayyed</h4>
-                <span>Project Leader</span>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="200">
-              <div class="member-img">
-                <img src="../static/assets/img/team/male.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Bhati Mujaffar</h4>
-                <span>Project Member</span>
-              </div>
-            </div>
-          </div>
+    
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <div class="member-img">
-                <img src="../static/assets/img/team/female icon.png" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Yashfeen Zari</h4>
-                <span>Project Member</span>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="400">
-              <div class="member-img">
-                <img src="../static/assets/img/team/male.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Saad Shaikh</h4>
-                <span>Project Member</span>
-              </div>
-            </div>
-          </div>
 
-        </div>
 
-      </div>
-    </section><!-- End Team Section -->
+
+<!-- ======= Scan Section ======= -->
+
+<section id="team" class="team">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Team</h2>
+      <p>Upload Image here</p>
+    </div>
+<div class="scan-container">
+
+<form style="text-align: center;" class="form-signin" action="/" method="post" id="myForm" enctype="multipart/form-data">
+
+
+<label for="images" class="drop-container">
+  <span class="drop-title">Drop files here</span> or
+  <input type="file"  name="images" id="images" accept="image/*" required="">
+</label>
+<button class="cta-btn submit-button" disabled="" style="
+margin-top: 30px;
+background-color: black;
+color: yellow;
+border: 2px solid black;">Upload Image</button>
+
+  </form>
+
+<script>
+
+const form = document.getElementById("myForm");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault(); // Prevent the form from submitting normally
+  const formData = new FormData(form); // Create a FormData object from the form data
+  const xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object
+  xhr.open("POST", "/"); // Set the request method and URL
+  xhr.send(formData); // Send the form data to the server
+});
+
+
+
+  const inputElement = document.getElementById("images");
+const submitButton = document.querySelector(".submit-button");
+
+inputElement.addEventListener("change", (event) => {
+const uploadedFile = event.target.files[0];
+if (uploadedFile && uploadedFile.type.includes("image")) {
+    submitButton.disabled = false;
+    const fileName = uploadedFile.name;
+    const fileInfo = document.querySelector(".file-info");
+    fileInfo.textContent = fileName;
+} else {
+    submitButton.disabled = true;
+    const fileInfo = document.querySelector(".file-info");
+    fileInfo.textContent = "";
+}
+});
+
+submitButton.addEventListener("click", () => {
+  submitButton.style.backgroundColor = "white";
+  submitButton.style.borderColor = "black";
+  setTimeout(() => {
+    submitButton.style.backgroundColor = "black";
+    submitButton.style.borderColor = "";
+  }, 1500);
+});
+
+</script>  
+  </div></div></section>
+<!-- End Team Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">

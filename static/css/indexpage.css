@@ -1138,88 +1138,128 @@ section {
 /*--------------------------------------------------------------
 # Team
 --------------------------------------------------------------*/
-.team {
-  background: #fff;
-  padding: 60px 0;
+
+
+
+* {
+  font-family: Open Sans,sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: all .3s;
 }
 
-.team .member {
-  margin-bottom: 20px;
-  overflow: hidden;
-  border-radius: 5px;
-  background: #fff;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+*, ::after, ::before {
+  box-sizing: border-box;
 }
 
-.team .member .member-img {
+.scan-container, .drop-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.drop-container {
+  border: 2px dashed #555;
+  border-radius: 10px;
+  color: #444;
+  cursor: pointer;
+  gap: 10px;
+  height: 200px;
+  padding: 20px;
   position: relative;
-  overflow: hidden;
+  transition: background .2s ease-in-out,border .2s ease-in-out;
 }
 
-.team .member .social {
-  position: absolute;
-  left: 0;
-  bottom: 30px;
-  right: 0;
-  opacity: 0;
-  transition: ease-in-out 0.3s;
+.input-container-scan {
+  margin-top: 20px;
+}
+
+.title-container, .input-container-scan {
+  margin-top: 50px;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0069d9;
+}
+
+.submit-button:disabled {
+  background-color: #ced4da;
+  cursor: not-allowed;
+}
+
+.drop-title {
+  font-size: 1.2rem;
+  font-weight: 500;
   text-align: center;
 }
 
-.team .member .social a {
-  transition: color 0.3s;
-  color: #151515;
-  margin: 0 3px;
-  border-radius: 4px;
-  width: 36px;
-  height: 36px;
-  background: rgba(255, 255, 255, 0.8);
-  transition: ease-in-out 0.3s;
-  color: #484848;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+label {
+  display: inline-block;
+  cursor: pointer;
+}
+input[type=file] {
+  background: #fff;
+  border: 1px solid #555;
+  border-radius: 10px;
+  color: #444;
+  max-width: 100%;
+  padding: 5px;
+  width: 350px;
 }
 
-.team .member .social a:hover {
-  color: #151515;
-  background: #ffc451;
+.submit-button {
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 10px;
+  color: yellow;
+  margin-top: 30px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
 }
 
-.team .member .social i {
-  font-size: 18px;
-  line-height: 0;
+.submit-button:hover {
+  background-color: yellow;
+  color: black;
+  cursor: pointer;
 }
 
-.team .member .member-info {
-  padding: 25px 15px;
+.submit-button:active {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  transition: background-color 0s;
 }
 
-.team .member .member-info h4 {
-  font-weight: 700;
-  margin-bottom: 5px;
-  font-size: 18px;
-  color: #151515;
+
+.scan-container .title-container, .input-container-scan {
+  margin-top: 50px;
 }
 
-.team .member .member-info span {
-  display: block;
-  font-size: 13px;
-  font-weight: 400;
-  color: #aaaaaa;
-}
 
-.team .member .member-info p {
-  font-style: italic;
-  font-size: 14px;
-  line-height: 26px;
-  color: #777777;
-}
 
-.team .member:hover .social {
-  opacity: 1;
-  bottom: 15px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*--------------------------------------------------------------
 # Contact
