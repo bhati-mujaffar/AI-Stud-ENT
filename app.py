@@ -3,6 +3,10 @@ from flask import render_template, request
 from flask import redirect, flash 
 import imghdr
 import json
+import pytesseract
+from PIL import Image
+pytesseract.pytesseract.tesseract_cmd=r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
 with open("config.json","r") as c:
     params=json.load(c)["params"]
 
@@ -21,6 +25,13 @@ def textchat():
         img.save(link)
         print(img)
         print("lol")
+        image = Image.open(link)
+        text2 = pytesseract.image_to_string(image, lang='eng')
+        print(text2)
+        with open("notebook.txt", "r+") as f:
+            f.write(text2)
+            data=f.read()
+        params["dataset"]=data
     return render_template('index.html',params=params)
 
 
