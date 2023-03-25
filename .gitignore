@@ -4,3 +4,5 @@ notebook.txt
 temp.png
 practice.py
 __pycache__/chatbot.cpython-310.pyc
+chatmodel.pickle
+chattokenizer.pickle
